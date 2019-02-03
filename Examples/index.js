@@ -8,16 +8,16 @@ application.addDirToClassPath(__dirname+"/../target/classes");
 application.start();
 
 var frame = index.findFrame("Simple.*");
-var button = frame.findButton({"text" : "2"});
+var button = frame.waitForFrame(10000).findButton({"text" : "2"});
 console.log(" Button is Enabled :" + button.isEnabled());
 button.click();
 
-var buttonplus = frame.findButton({"text" : "+"});
+var buttonplus = frame.waitForFrame(10000).findButton({"text" : "+"});
 console.log(" Button is Enabled :" + button.isEnabled());
 buttonplus.click();
 button.click();
 
-var buttonEqual =frame.findButton({"text" : "="});
+var buttonEqual =frame.waitForFrame(10000).findButton({"text" : "="});
 console.log(" Button is Enabled :" + button.isEnabled());
 buttonEqual.click();
 

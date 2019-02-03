@@ -5,9 +5,17 @@ var java = javaInit.getJavaInstance();
 
 class Frame {
     constructor(name,robot){
-        this.swingFrame = java.callStaticMethodSync("js_assertj.Using","getFrameByTitle",name,robot);
+        //this.swingFrame = java.callStaticMethodSync("js_assertj.Using","getFrameByTitle",name,robot);
         this.name=name;
         this.robot=robot;
+    }
+
+    waitForFrame(timeout){
+        var pattern =".*"+this.name+".*";
+        var jPattern = java.callStaticMethodSync("java.util.regex.Pattern","compile",pattern);
+        var frameMatcher = java.callStaticMethodSync("org.assertj.swing.core.matcher.FrameMatcher","withTitle",jPattern);
+        this.swingFrame = java.callStaticMethodSync("org.assertj.swing.finder.WindowFinder","findFrame",frameMatcher).withTimeoutSync(timeout).usingSync(this.robot);
+        return this;
     }
     /**
      * Find Button on the frame using name or text

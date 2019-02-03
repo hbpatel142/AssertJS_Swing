@@ -41,6 +41,14 @@ class Application {
     }
 
     /**
+     * add Java options for application
+     * @param {string} option 
+     */
+    addJavaOptions(option){
+        java.options.push(option);
+    }
+
+    /**
      * Start Application
      */
     start(){
