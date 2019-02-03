@@ -2,3 +2,4 @@ node_modules
 target/classes/js_assertj
 target/dependency
 .vscode
+*.tgz

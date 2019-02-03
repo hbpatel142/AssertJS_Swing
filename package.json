@@ -1,12 +1,12 @@
 {
   "name": "assertjs_swing",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "AssertJS Swing - Java Swing UI Automation Tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Hardik Patel",
   "license": "ISC",
   "dependencies": {
     "java": "^0.11.0"
