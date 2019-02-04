@@ -4,6 +4,12 @@ var java = javaInit.getJavaInstance();
 var JObject = require('./JObjects');
 
 class JContainer extends JObject{
+
+    /**
+     * 
+     * @param {*} container 
+     * @returns {JContainer}
+     */
     constructor(container){
         super(container);
         this.container = container;
@@ -12,6 +18,7 @@ class JContainer extends JObject{
     /**
      * get button from the container
      * @param {{name}} By 
+     * @returns {JButton}
      */
     button(By={"name":""}){
         var JButton = require('./JButton');
@@ -21,6 +28,7 @@ class JContainer extends JObject{
     /**
      * get checkBox from the container
      * @param {{name}} By 
+     * @returns {JCheckBox}
      */
     checkBox(By={"name":""}){
         var JCheckBox = require('./JCheckBox');

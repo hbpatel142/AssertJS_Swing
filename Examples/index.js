@@ -2,8 +2,9 @@ var index = require('./../index');
 
 index.setAssertJLibraryPath(__dirname+"/../target/dependency");
 
-var application = index.launchApplication("Simple Calculator","js_assertj.JavaCalculator");
+var application = index.newApplication("Simple Calculator","js_assertj.JavaCalculator");
 application.addDirToClassPath(__dirname+"/../target/classes");
+application.addJavaOptions("-DEnvironmentName=EnvironmentValue");
 
 application.start();
 

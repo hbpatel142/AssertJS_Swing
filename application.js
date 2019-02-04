@@ -55,7 +55,7 @@ class Application {
         this.BasicRobot = java.import("org.assertj.swing.core.BasicRobot");
         this.Robot=this.BasicRobot.robotWithNewAwtHierarchySync();
         this.instance = java.callStaticMethodSync("org.assertj.swing.launcher.ApplicationLauncher","application",this.applicationClass);
-        if(this.rgs!="")
+        if(this.Args!="")
             this.instance = this.instance.withArgsSync(this.Args);
     
         this.instance.startSync();

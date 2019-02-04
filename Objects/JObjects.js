@@ -34,8 +34,8 @@ class JObject {
      * Press and Release Keys
      * @param {number} keys 
      */
-    pressAndReleaseKeys(num){
-        return this.object.pressAndReleaseKeysSync(num);
+    pressAndReleaseKey(num){
+        this.object.pressKeySync(num).releaseKeySync(num);
     }
 }
 

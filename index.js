@@ -20,7 +20,7 @@ var fs = require("fs");
  * @param {string} name 
  * @param {string} ApplicationClass class must be on classpath
  */
-function LaunchApplication(name,ApplicationClass,Args){
+function newApplication(name,ApplicationClass,Args){
     this.applicationInstance = new Application(name,ApplicationClass);
     return this.applicationInstance;
 }
@@ -31,7 +31,7 @@ function findFrame(name){
 }
 
 module.exports={
-    "launchApplication" : LaunchApplication,
+    "newApplication" : newApplication,
     "findFrame"         : findFrame,
     "java"              : java,
     "setAssertJLibraryPath" : setAssertJLibraryPath

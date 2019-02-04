@@ -4,6 +4,12 @@ var java = javaInit.getJavaInstance();
 var JObject = require('./JObjects');
 
 class JComboBox extends JObject {
+
+    /**
+     * 
+     * @param {*} comboBox 
+     * @returns {JComboBox}
+     */
     constructor(comboBox){
         super(comboBox);
         this.comboBox = comboBox;
@@ -12,22 +18,20 @@ class JComboBox extends JObject {
     /**
      * get selected item for a combo box
      * @returns {string}
+     * @returns {string}
      */
     selectedItem(){
-        return comboBox.selectedItemSync();
+       return this.comboBox.selectedItemSync();  
     }
 
     /**
      * Select Item by Index
      * @param {number} index 
+     * @returns {JComboBox}
      */
     selectItemByIndex(index){
-        try{
-            this.comboBox.selectItemSync(index);
-            return true;
-        }catch(e){
-            return false;
-        }
+        this.comboBox.selectItemSync(index);
+        return this;
     }
 
     /**
@@ -35,12 +39,7 @@ class JComboBox extends JObject {
      * @param {String} text 
      */
     selectItemByText(text){
-        try{
             this.comboBox.selectItemSync(text);
-            return true;
-        }catch(e){
-            return false;
-        }
     }
 }
 

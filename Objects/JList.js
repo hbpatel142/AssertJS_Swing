@@ -4,6 +4,11 @@ var java = javaInit.getJavaInstance();
 var JObject = require('./JObjects');
 
 class JList extends JObject{
+    /**
+     * 
+     * @param {*} list 
+     * @returns {JList}
+     */
     constructor(list){
         super(list);
         this.list = list;
@@ -11,29 +16,36 @@ class JList extends JObject{
 
     /**
      * Clears the selection
+     * @returns {JList}
      */
     clearSelection(){
         this.list.clearSelectionSync();
+        return this;
     }
 
     /**
      * click item by index
-     * @param {number} index 
+     * @param {number} index
+     * @returns {JList} 
      */
     clickItemByIndex(index){
         this.list.clickItemSync(index);
+        return this;
     }
 
     /**
      * click item by text
      * @param {String} text 
+     * @returns {JList}
      */
     clickItemByText(text){
         this.list.clickItemSync(text);
+        return this;
     }
 
     /** 
      * get count of list items
+     * @returns {Number}
      */
     count(){
         var content = this.list.contentsSync(); 
@@ -62,9 +74,11 @@ class JList extends JObject{
     /**
      * Select item by index
      * @param {number} index 
+     * @returns {JList}
      */
     selectItemByindex(index){
         this.list.selectItemSync(index);
+        return this;
     }
     
     /**

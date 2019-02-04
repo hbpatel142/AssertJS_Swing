@@ -4,6 +4,12 @@ var java = javaInit.getJavaInstance();
 var JObject = require('./JObjects');
 
 class JCheckBox extends JObject {
+
+    /**
+     * Create Checkbox Object
+     * @param {*} checkbox
+     * @returns {JCheckBox} 
+     */
     constructor(checkbox){
         super(checkbox);
         this.checkbox = checkbox;
@@ -26,24 +32,14 @@ class JCheckBox extends JObject {
      * check the checkbox
      */
     check(){
-        try{
-            this.checkbox.checkSync();
-            return true;
-        }catch(e){
-            return false;
-        }
+        this.checkbox.checkSync();
     }
 
     /**
      * uncheck the checkbox
      */
     uncheck(){
-        try{
-            this.checkbox.uncheckSync();
-            return true;
-        }catch(e){
-            return false;
-        }
+        this.checkbox.uncheckSync();
     }
 }
 

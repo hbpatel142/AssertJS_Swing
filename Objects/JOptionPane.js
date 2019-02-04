@@ -64,12 +64,6 @@ class JOptionPane extends JObject {
      * @param {String} message 
      */
     requireMessage(message){
-        try{
         this.optionPane.requireMessageSync(message);
-        return true;
-        }catch(e)
-        {
-            return false;
-        }
     }
 }

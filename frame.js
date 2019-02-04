@@ -10,6 +10,11 @@ class Frame {
         this.robot=robot;
     }
 
+    /**
+     * Wait for frame based on the name(Pattern)
+     * @param {Number} timeout 
+     * @returns {Frame}
+     */
     waitForFrame(timeout){
         var pattern =".*"+this.name+".*";
         var jPattern = java.callStaticMethodSync("java.util.regex.Pattern","compile",pattern);
@@ -17,9 +22,11 @@ class Frame {
         this.swingFrame = java.callStaticMethodSync("org.assertj.swing.finder.WindowFinder","findFrame",frameMatcher).withTimeoutSync(timeout).usingSync(this.robot);
         return this;
     }
+
     /**
      * Find Button on the frame using name or text
      * @param {{text,name}} By text or name
+     * @returns {JButton}
      */
     findButton(By={"text":"","name":""}){
         var button;
@@ -35,6 +42,11 @@ class Frame {
         return new JButton(button);
     }
 
+    /**
+     * Find checkbox using name
+     * @param {{name}} By 
+     * @returns {JCheckBox}
+     */
     findCheckBox(By={"name":""}){
         var checkbox;
         if( !('name' in By))
@@ -42,31 +54,46 @@ class Frame {
 
         checkbox = java.newInstanceSync("org.assertj.swing.fixture.JCheckBoxFixture",this.robot,By.name);
     
-        var JCheckBox = require('./JCheckBox');
+        var JCheckBox = require('./Objects/JCheckBox');
         return new JCheckBox(checkbox);
     }
 
+    /**
+     * Find combobox by name
+     * @param {{name}} By 
+     * @returns {JComboBox}
+     */
     findComboBox(By={"name":""}){
         var combobox;
         if(!('name' in By))
             throw "FindComboBox : name is not found in By";
 
         combobox = java.newInstanceSync("org.assertj.swing.fixture.JComboBoxFixture",this.robot,By.name);
-        var JComboBox = require('./JComboBox');
+        var JComboBox = require('./Objects/JComboBox');
         return new JComboBox(combobox);
     }
 
+    /**
+     * Find Label by name
+     * @param {{name}} By 
+     * @returns {JLabel}
+     */
     findLabel(By={"name":""}){
         var label;
         if(!('name' in By))
             throw "FindLabel : name is not found in By";
 
         label = java.newInstanceSync("org.assertj.swing.fixture.JLabelFixture",this.robot,By.name);
-        var JLabel = require('./JLabel');
+        var JLabel = require('./Objects/JLabel');
 
         return new JLabel(label);
     }
 
+    /**
+     * Find component by name
+     * @param {{name}} By 
+     * @returns {JTextComponent}
+     */
     findTextComponent(By={"name":""}){
         var textComponent ;
         if(!('name' in By))
@@ -79,6 +106,11 @@ class Frame {
         return new JTextComponent(textComponent);
     }
 
+    /**
+     * Find list by name
+     * @param {{name}} By 
+     * @returns {JList}
+     */
     findList(By={"name":""}){
         var list;
         if(!('name' in By))
@@ -86,11 +118,16 @@ class Frame {
 
         list = java.newInstanceSync("org.assertj.swing.fixture.JListFixture",this.robot,By.name);
 
-        var JList = require('./JList');
+        var JList = require('./Objects/JList');
 
         return new JList(list);
     }
 
+    /**
+     * Find Menu Item
+     * @param {{name}} By 
+     * @returns {JMenuItem}
+     */
     findMenuItem(By={"name":""}){
         var menuItem;
         if(!('name' in By))
@@ -98,10 +135,15 @@ class Frame {
 
         menuItem = java.newInstanceSync("org.assertj.swing.fixture.JMenuItemFixture",this.robot,By.name);
 
-        var JMenuItem = require('./JMenu');
+        var JMenuItem = require('./Objects/JMenu');
         return new JMenuItem(menuItem);
     }
 
+    /**
+     * Find option pane
+     * @param {{name}} By
+     * @returns {JOptionPane} 
+     */
     findOptionPane(By={"name":""}){
         var optionPane;
         if(!('name' in By))

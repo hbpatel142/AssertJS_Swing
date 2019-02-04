@@ -11,6 +11,7 @@ class JtextComponent extends JObject{
 
     /**
      * get text 
+     * @returns {String}
      */
     text(){
         return this.textComponent.textSync();
@@ -18,9 +19,11 @@ class JtextComponent extends JObject{
 
     /**
      * Delete Text
+     * @returns {JtextComponent}
      */
     deleteText(){
-        return this.textComponent.deleteTextSync();
+        this.textComponent.deleteTextSync();
+        return this;
     }
 
     /**
@@ -29,14 +32,17 @@ class JtextComponent extends JObject{
      */
     enterText(text){
         this.textComponent.enterTextSync(text);
+        return this;
     }
 
     /**
      * set text
      * @param {String} text 
+     * @returns {JtextComponent}
      */
     setText(text){
         this.textComponent.setTextSync(text);
+        return this;
     }
 }
 
